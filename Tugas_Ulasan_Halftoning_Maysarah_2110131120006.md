@@ -34,7 +34,56 @@ Pattern menghasilkan gambar halftoning digital dari gambar input menggunakan tek
 <p align="justify">
 Teknik lain yang digunakan untuk menghasilkan gambar halftoning digital adalah dithering. Tidak seperti pola, dithering membuat gambar keluaran dengan jumlah titik yang sama dengan jumlah piksel pada gambar sumber. Dithering dapat dianggap sebagai thresholding gambar sumber dengan matriks gentar. Matriks diletakkan berulang kali di atas gambar sumber. Dimanapun nilai piksel gambar lebih besar dari nilai dalam matriks, titik pada gambar output diisi. Gambar dibawah menunjukkan contoh operasi dithering.</p><br>
 
-<p align="center"><img src="img_ulasan/5.jpeg"></p><br>
+<p align="center"><img src="img_ulasan/5.jpeg"></p><br><br>
+
+# Cara Menentukan Pola dari Patterning dan Dithering
+
+- Patterning
+
+ <p align="justify">
+ Untuk menentukan banyaknya pola pada patterning kita bisa mengetahui secara langsung dengan menghitung banyaknya font biner atau pattern pengganti terlebih dahulu kemudian ditambahkan dengan 1.<br>
+ Misalkan dari 4 x 4 font biner dapat menghasilkan 17 pola yang berbeda.<br>
+ Pola yang ada pada patterning tidak boleh sama antara satu sama lain.</p>
+
+ <p align="center"><img src="img_ulasan/2.jpeg"></p><br><br>
+
+ - Dithering
+
+<p align="justify">
+ Karena sistem visual manusia cenderung meratakan suatu area di sekitar piksel,
+bukan melihat setiap piksel secara sendiri-sendiri, sehingga memungkinkan untuk
+membuat ilusi dari beberapa tingkat keabuan di dalam sebuah citra biner yang dalam
+kenyataanya hanya terdiri dari dua tingkat abu-abu.<br><br>
+Untuk sebagian besar tujuan dithering, cukup menambahkan nilai ambang batas ke setiap piksel (tanpa melakukan normalisasi dengan mengurangi 1⁄2), atau secara setara, untuk membandingkan nilai piksel dengan ambang batas: jika nilai kecerahan piksel <b>kurang dari</b> nomor di sel matriks yang sesuai, plot piksel itu <b>hitam</b>, jika <b>tidak</b>, plot <b>putih.</b></p>
+
+<p align="center"><img src="img_ulasan/5.jpeg"></p><br><br>
+
+# Cara Menentukan Matriks Dither (Matriks Threshold)
+
+<p align="justify">
+Thresholding merupakan salah satu metode segmentasi citra di mana prosesnya didasarkan pada perbedaan derajat keabuan citra. Dalam proses ini dibutuhkan suatu nilai batas yang disebut nilai threshold. <br><br>
+Nilai intensitas citra yang lebih dari atau sama dengan nilai threshold akan diubah menjadi 1 (berwarna putih) sedangkan nilai intensitas citra yang kurang dari nilai threshold akan diubah menjadi 0 (berwana hitam). Sehingga citra keluaran dari hasil thresholding adalah berupa citra biner.</p>
+
+<p align="justify">
+Persamaan yang digunakan untuk mengkonversi nilai piksel citra grayscale menjadi biner pada metode thresholding adalah:</p>
+
+<p align="center"><img src="img_ulasan/6.jpeg"></p><br>
+
+di mana<br>
+f(x,y) adalah citra grayscale<br>
+g(x,y) adalah citra biner<br>
+T adalah nilai threshold<br><br>
+
+# Mengapa hasil dithering dengan matriks 2x2 tidak sebagus hasil matriks dither 16x16
+
+<p align="justify">
+Perbedaan antara keluaran yang dihasilkan antara citra menggunakan 4x4 matriks dithering dan 16x16 matriks dithering terletak pada sensitifitas nilai piksel aslinya. Citra yang dihasilkan dari penggunaaan matriks 4x4 memiliki pola halftone yang kurang dibandingkan dengan citra yang diproses menggunakan matriks dithering 16x16. Karena itu hasil dari citra dengan 4x4 matriks dithering memiliki banyak daerah dengan pola yang sama, sehingga hasil yang ditampilkan menjadi kurang baik dibandingkan dithering dengan matriks 16x16.</p>
+
+
+
+
+
+
 
 
 
